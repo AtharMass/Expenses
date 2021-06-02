@@ -3,12 +3,17 @@ var moment = require('moment');
 const router = express.Router()
 
 var Expense = require("../model/Expense")
-// var expenseJSON = require("../../expenses")
+/*var expenseJSON = require("../../expenses")
 
-// expenseJSON.forEach(expenseObj => {
-//     let expense = new Expense(expenseObj)
-//     expense.save()
-// })
+expenseJSON.forEach(expenseObj => {
+    let expense = new Expense({
+        name: expenseObj.item,
+        amount: expenseObj.amount,
+        date: expenseObj.date,
+        group: expenseObj.group
+    })
+    expense.save()
+ })*/
 
 const getDate = date =>{
     if(date == null){
@@ -79,15 +84,6 @@ router.get("/expenses/aggregate/:group" ,function(request,response){
             }
           ])
     }
-    // Expense.aggregate([{ $match: { total:  Boolean(total) }}])
-    // .group({ _id: "$groupData" })
-    // .exec(function (err, ex) {
-    //     console.log(ex)
-    //     response.send(` all expenses per a specific category founded ${ex}`)
-    // })
 })
-
-
-
 
 module.exports = router
